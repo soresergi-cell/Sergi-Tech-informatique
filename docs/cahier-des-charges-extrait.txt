@@ -1,0 +1,936 @@
+--- PAGE 1 ---
+CAHIER DES CHARGES FONCTIONNEL
+Site e-commerce de vente de produits informatiques
+SERGI-TECH
+Version
+1.0
+Date
+28 septembre 2026
+Statut
+Projet – à valider par le commanditaire
+Rédigé par
+Chef de projet IT / Product Owner / AMOA
+Commanditaire
+[Nom du dirigeant], SERGI-TECH
+Diffusion
+Direction, prestataire de développement, équipe commerciale
+
+--- PAGE 2 ---
+Cahier des charges – Site e-commerce de produits informatiques
+Version 1.0 – 28/09/2026 – Document confidentiel
+Page 2
+Table des matières
+4
+1. Présentation et contexte
+ .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 4
+1.1 Présentation de l’entreprise
+ .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 4
+1.2 Contexte et enjeux
+ .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 4
+1.3 Vision
+ .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 5
+1.4 Objectifs du site
+ .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 5
+1.5 Public cible
+5
+2. Périmètre et besoins fonctionnels
+ .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 5
+2.1 Analyse du besoin par la méthode QQOQCCP
+ .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 6
+2.2 Périmètre du projet
+ .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 6
+2.2.1 Inclus dans le périmètre
+ .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 6
+2.2.2 Hors périmètre (évolutions possibles)
+ .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 6
+2.3 Catalogue de produits
+ .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 7
+2.4 Exigences fonctionnelles
+ .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 7
+2.5 Contenu du site
+ .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 8
+2.6 Design et ergonomie
+ .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 8
+2.7 Nom de domaine et hébergement
+ .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 8
+2.8 Référencement (SEO)
+ .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 8
+2.9 Réseaux sociaux et contact
+9
+3. Outils et technologies
+ .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 9
+3.1 Choix de la plateforme
+ .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 9
+3.2 Architecture technique
+ .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 10
+3.3 Outils de gestion de projet
+10
+4. Contraintes opérationnelles et user stories
+ .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 10
+4.1 Contraintes opérationnelles
+ .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 10
+4.2 User stories
+12
+5. Besoins non-fonctionnels (qualité et fiabilité)
+13
+6. Livrables et planning
+
+--- PAGE 3 ---
+Cahier des charges – Site e-commerce de produits informatiques
+Version 1.0 – 28/09/2026 – Document confidentiel
+Page 3
+ .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 13
+6.1 Livrables
+ .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 13
+6.2 Méthode de travail agile
+ .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 14
+6.3 Planning prévisionnel par sprint
+14
+7. Coût et délais
+ .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 14
+7.1 Planification par la technique PERT
+ .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 15
+7.2 Estimation des coûts
+ .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 16
+7.3 Risques principaux
+ .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . 16
+7.4 Conditions de validation et recette
+
+--- PAGE 4 ---
+Cahier des charges – Site e-commerce de produits informatiques
+Version 1.0 – 28/09/2026 – Document confidentiel
+Page 4
+Historique et validation du document
+Version
+Date
+Auteur
+Description
+0.1
+28/09/2026
+Chef de projet / PO
+Première trame du cahier des charges
+1.0
+28/09/2026
+Chef de projet / PO
+Version complète soumise à validation
+Note importante. Les éléments entre crochets (coordonnées, horaires, liens des réseaux sociaux,
+gamme exacte de produits) sont à compléter par le commanditaire. Les chiffres de coûts et de
+durées sont des estimations de cadrage, à confirmer par devis du prestataire.
+1. Présentation et contexte
+1.1 Présentation de l’entreprise
+SERGI-TECH est une entreprise spécialisée dans la commercialisation de produits informatiques :
+ordinateurs, composants, périphériques, accessoires, matériel réseau et solutions de stockage.
+Elle s’adresse à des particuliers, des étudiants, des professionnels et des organisations.
+L’entreprise dispose d’une boutique physique et communique déjà sur les réseaux sociaux
+(Facebook, Instagram, TikTok).
+Élément
+Information
+Nom de l’entreprise
+SERGI-TECH
+Activité
+Vente de produits informatiques (neufs), accessoires et services associés
+Clientèle actuelle
+Particuliers, étudiants, professionnels, entreprises et institutions
+Zone de vente
+Burkina Faso en priorité, avec ouverture possible à l’international
+Réseaux sociaux
+Facebook, Instagram, TikTok (liens fournis par l’entreprise)
+Contact
+[Téléphone], [E-mail professionnel], [Adresse de la boutique]
+1.2 Contexte et enjeux
+Aujourd’hui, la vente repose principalement sur la boutique physique, les réseaux sociaux et les
+échanges par téléphone ou par messagerie. Cette organisation limite la visibilité de l’offre,
+complique la comparaison des produits et des prix, et impose la présence du client ou de longs
+échanges pour obtenir une information de disponibilité. Le site web doit corriger ces limites et
+devenir le canal de vente et de référence de l’entreprise.
+1.3 Vision
+Devenir une référence locale dans la vente de matériel informatique en ligne : un catalogue fiable
+et à jour, un parcours de commande simple, et une relation client rapide via WhatsApp, avec la
+possibilité d’étendre l’activité à d’autres zones géographiques.
+
+--- PAGE 5 ---
+Cahier des charges – Site e-commerce de produits informatiques
+Version 1.0 – 28/09/2026 – Document confidentiel
+Page 5
+1.4 Objectifs du site
+• Faire connaître l’entreprise et son catalogue au-delà de la zone de la boutique physique.
+• Vendre en ligne : permettre de commander 24 h/24, 7 j/7.
+• Faciliter l’accès aux produits : recherche, filtres, comparaison, fiches détaillées et prix affichés.
+• Rassurer : garanties, conditions de retour, avis clients, contact direct.
+• Réduire la charge de travail de l’équipe sur les demandes répétitives (prix, disponibilité).
+• Être visible sur Google avec le mot-clé principal « SERGI-TECH ».
+1.5 Public cible
+Segment
+Besoins principaux
+Canal privilégié
+Particuliers
+Acheter un ordinateur, un smartphone ou des
+accessoires au bon prix
+Site, WhatsApp
+Étudiants
+Matériel abordable, offres de rentrée
+Mobile, réseaux sociaux
+Professionnels et TPE
+Équipement de bureau, achats en quantité, devis
+Site, e-mail, devis
+Institutions et ONG
+Marchés d’équipement, factures conformes
+E-mail, devis
+Clients à distance
+Voir l’offre, commander et se faire livrer
+Site, WhatsApp
+2. Périmètre et besoins fonctionnels
+2.1 Analyse du besoin par la méthode QQOQCCP
+Question
+Réponse
+Quoi ?
+Un site web e-commerce pour présenter et vendre des produits informatiques, avec prix
+affichés, mises à jour régulières, promotions et commande.
+Qui ?
+Utilisateurs : visiteurs, clients, entreprises. Acteurs internes : dirigeant, gestionnaire du
+catalogue, commercial. Prestataires : développeur, hébergeur, opérateur de paiement.
+Où ?
+Accès depuis le Burkina Faso et l’international, sur mobile en priorité. Boutique physique
+localisée sur Google Maps.
+Quand ?
+Site disponible 24 h/24. Lancement visé à environ 3 mois après validation du cahier des
+charges. Mises à jour du catalogue en continu.
+Comment ?
+Plateforme e-commerce administrable sans code, design moderne, responsive, commande
+en ligne et bouton de commande WhatsApp, méthode de gestion de projet agile.
+Combien ?
+Budget de cadrage estimé à 2 805 000 FCFA (voir section 7), à confirmer par devis.
+Pourquoi ?
+Élargir la clientèle, augmenter les ventes, simplifier l’accès aux produits et professionnaliser
+l’image de l’entreprise.
+
+--- PAGE 6 ---
+Cahier des charges – Site e-commerce de produits informatiques
+Version 1.0 – 28/09/2026 – Document confidentiel
+Page 6
+2.2 Périmètre du projet
+2.2.1 Inclus dans le périmètre
+• Site web public responsive (mobile, tablette, ordinateur), en français avec structure prête
+pour l’anglais.
+• Catalogue de produits par catégories avec galerie, fiches détaillées, prix et disponibilité.
+• Recherche, filtres et tri des produits.
+• Panier et commande en ligne, avec bouton de commande redirigeant vers WhatsApp de
+l’entreprise.
+• Demande de devis pour les achats professionnels ou en quantité.
+• Espace d’administration : gestion des produits, images, prix, stocks, promotions et
+commandes.
+• Intégration Google Maps, liens vers les réseaux sociaux, formulaire de contact.
+• Optimisation SEO de base et suivi des statistiques.
+• Formation du personnel, documentation et mise en ligne.
+2.2.2 Hors périmètre (évolutions possibles)
+• Application mobile native.
+• Gestion complète des stocks et de la comptabilité (ERP).
+• Marketplace multi-vendeurs.
+• Logistique internationale automatisée (calcul transporteur en temps réel).
+• Rédaction complète de l’ensemble des contenus et shooting photo (sauf accord spécifique).
+2.3 Catalogue de produits
+Catégorie
+Exemples de produits
+Ordinateurs
+Portables, ordinateurs de bureau, tout-en-un, mini-PC
+Composants
+Processeurs, cartes mères, mémoire vive, cartes graphiques, alimentations,
+boîtiers
+Stockage
+Disques SSD/HDD, disques externes, clés USB, cartes mémoire
+Périphériques
+Écrans, claviers, souris, casques, webcams, onduleurs
+Réseau
+Routeurs, points d’accès, switchs, câbles, répéteurs
+Impression
+Imprimantes, cartouches, toners, papier
+Accessoires
+Sacs, chargeurs, câbles, adaptateurs, supports
+Services (optionnel)
+Installation, configuration, maintenance, pack entreprise
+Les catégories définitives seront ajustées selon l’offre réelle. Chaque produit comporte : nom,
+référence, photos, description, caractéristiques techniques, prix, éventuel prix promotionnel,
+disponibilité et garantie.
+
+--- PAGE 7 ---
+Cahier des charges – Site e-commerce de produits informatiques
+Version 1.0 – 28/09/2026 – Document confidentiel
+Page 7
+2.4 Exigences fonctionnelles
+Priorités selon la méthode MoSCoW : M = indispensable, S = important, C = souhaitable.
+ID
+Exigence
+Priorité
+EF-01
+Afficher les produits sous forme de galerie avec photos, modèle, caractéristiques et
+prix associés
+M
+EF-02
+Afficher le prix et les informations détaillées de chaque produit sur sa fiche
+M
+EF-03
+Naviguer par catégories et changer de catalogue (par ex. ordinateurs, composants,
+accessoires)
+M
+EF-04
+Rechercher un produit par mot-clé, avec filtres (prix, marque, catégorie, disponibilité)
+et tri
+M
+EF-05
+Mettre à jour les images, les prix et les stocks depuis l’administration, sans
+compétence technique
+M
+EF-06
+Gérer les promotions (prix barré, période de validité, badge « Promo »)
+M
+EF-07
+Bouton « Commander » redirigeant automatiquement vers WhatsApp de l’entreprise
+avec un message prérempli (produit, quantité, prix)
+M
+EF-08
+Panier et commande en ligne (adresse, mode de livraison ou retrait en boutique,
+récapitulatif)
+S
+EF-09
+Paiement en ligne (carte bancaire et Mobile Money) et paiement à la livraison ou en
+boutique
+S
+EF-10
+Demande de devis pour les professionnels et les achats en quantité
+S
+EF-11
+Intégrer Google Maps avec la localisation de la boutique et l’itinéraire
+M
+EF-12
+Afficher les horaires d’ouverture et de fermeture et les coordonnées de contact
+M
+EF-13
+Intégrer les liens vers Facebook, Instagram et TikTok, avec partage des produits
+M
+EF-14
+Afficher des vidéos et animations ciblées (présentation, démonstration produit)
+S
+EF-15
+Créer un compte client, suivre ses commandes, conserver une liste de souhaits
+C
+EF-16
+Afficher des avis clients modérés
+C
+EF-17
+Comparer plusieurs produits côte à côte
+C
+EF-18
+Site multilingue (français puis anglais) et affichage multi-devises
+C
+EF-19
+Site responsive : affichage optimal sur mobile, tablette et ordinateur
+M
+EF-20
+Notification par e-mail des nouvelles commandes à l’entreprise et de la confirmation
+au client
+S
+2.5 Contenu du site
+• Logo de l’entreprise et charte graphique.
+• Photos professionnelles des produits et bannières d’arrière-plan (page d’accueil, promotions).
+• Vidéos et animations précises : présentation de l’entreprise, démonstration de produits
+phares, bannière promotionnelle.
+
+--- PAGE 8 ---
+Cahier des charges – Site e-commerce de produits informatiques
+Version 1.0 – 28/09/2026 – Document confidentiel
+Page 8
+• Pages : Accueil, Boutique/Catalogue, Fiche produit, Promotions, Devis, À propos, Contact,
+Mentions légales, CGV, Politique de confidentialité, FAQ.
+2.6 Design et ergonomie
+Le design doit refléter le sérieux et la modernité d’un vendeur de matériel informatique, tout en
+gardant une identité chaleureuse et locale. Il sera défini à partir du logo et des couleurs de
+l’entreprise (à fournir). Principes retenus : mobile first, hiérarchie visuelle claire, boutons d’action
+visibles (Commander, Demander un devis), chargement rapide, accessibilité des contrastes et des
+tailles de texte.
+2.7 Nom de domaine et hébergement
+• Nom de domaine associé au nom de l’entreprise, avec extension pertinente (.com, .bf ou
+équivalent).
+• Hébergement fiable avec certificat SSL (HTTPS) et sauvegardes automatiques.
+• Adresse e-mail professionnelle liée au domaine (déjà disponible ou à créer).
+• Frais de domaine et d’hébergement à la charge de l’entreprise (intégrés au budget).
+2.8 Référencement (SEO)
+• Le site doit apparaître dans les résultats de recherche Google, avec le mot-clé principal «
+SERGI-TECH ».
+• Mots-clés secondaires : marques et types de produits informatiques + ville / pays.
+• Balises titre et méta-description, URL lisibles, textes alternatifs des images, fichier sitemap.xml
+et robots.txt.
+• Création d’une fiche Google Business Profile et déclaration du site dans Google Search
+Console.
+• Données structurées pour les produits (prix, disponibilité) afin d’améliorer l’affichage sur
+Google.
+2.9 Réseaux sociaux et contact
+Élément
+Exigence
+Facebook, Instagram, TikTok
+Liens dans l’en-tête et le pied de page, boutons de partage produit
+Téléphone
+Numéro cliquable sur mobile : [numéro]
+E-mail
+Adresse professionnelle : [adresse e-mail]
+WhatsApp
+Bouton flottant et bouton de commande : [numéro WhatsApp]
+Adresse et carte
+Adresse de la boutique et carte Google Maps intégrée : [adresse]
+Horaires
+Jours et heures d’ouverture et de fermeture : [à compléter]
+
+--- PAGE 9 ---
+Cahier des charges – Site e-commerce de produits informatiques
+Version 1.0 – 28/09/2026 – Document confidentiel
+Page 9
+3. Outils et technologies
+3.1 Choix de la plateforme
+Trois options ont été comparées. La recommandation privilégie l’autonomie de l’équipe pour
+mettre à jour images et prix, le coût maîtrisé et la disponibilité de prestataires locaux.
+Critère
+WordPress +
+WooCommerce
+Shopify
+Développement sur
+mesure
+Coût de départ
+Faible à moyen
+Moyen (abonnement
+mensuel)
+Élevé
+Autonomie de
+gestion
+Très bonne
+Très bonne
+Selon l’administration
+développée
+Personnalisation
+Très large (extensions)
+Large (thèmes,
+applications)
+Illimitée
+Paiement Mobile
+Money local
+Par extensions et
+intégrations
+Limité selon les pays
+Sur mesure
+Propriété des
+données
+Totale
+Partielle
+Totale
+Délai de mise en
+œuvre
+Court
+Court
+Long
+Recommandation
+Retenue
+Alternative
+Non retenue à ce stade
+3.2 Architecture technique
+Composant
+Solution proposée
+Gestion de contenu et
+e-commerce
+WordPress avec WooCommerce
+Thème
+Thème léger et responsive, personnalisé (mobile first)
+Hébergement
+Hébergement mutualisé performant ou VPS avec certificat SSL, sauvegardes
+quotidiennes
+Paiement
+Passerelle carte bancaire + agrégateur Mobile Money (à confirmer selon les
+opérateurs disponibles)
+Commande WhatsApp
+Lien d’API WhatsApp avec message prérempli
+Cartographie
+Google Maps intégré
+SEO
+Extension SEO (Yoast ou Rank Math), Google Search Console, Google
+Business Profile
+Statistiques
+Google Analytics 4
+Performance
+Extension de cache, compression d’images (WebP), CDN
+Sécurité
+Pare-feu applicatif, protection anti-spam, authentification renforcée pour
+l’administration
+E-mail
+Messagerie professionnelle liée au nom de domaine
+
+--- PAGE 10 ---
+Cahier des charges – Site e-commerce de produits informatiques
+Version 1.0 – 28/09/2026 – Document confidentiel
+Page 10
+3.3 Outils de gestion de projet
+• Suivi agile : Trello, Jira ou Notion (backlog, sprints, tableau Kanban).
+• Maquettage : Figma.
+• Communication : WhatsApp ou Teams pour le suivi quotidien, réunions de sprint en
+visioconférence.
+• Gestion documentaire : Google Drive pour les contenus, logos, photos et versions du cahier
+des charges.
+4. Contraintes opérationnelles et user stories
+4.1 Contraintes opérationnelles
+Domaine
+Contrainte
+Connexion
+Débit mobile parfois limité : pages légères, images optimisées, chargement progressif
+Terminaux
+Usage majoritaire sur smartphone : approche mobile first
+Paiement
+Diversité des moyens de paiement locaux : prévoir paiement à la livraison et en
+boutique
+Livraison
+Livraison locale et retrait en boutique en priorité, expédition internationale sur devis
+Catalogue
+Prix et disponibilités susceptibles de varier : mise à jour rapide indispensable
+Ressources
+Équipe réduite : administration simple, formation dédiée
+Contenus
+Photos, descriptions et logo à fournir par l’entreprise dans les délais du planning
+Juridique
+Mentions légales, CGV, politique de confidentialité, conformité aux règles de
+protection des données
+Budget et délais
+Enveloppe de cadrage et calendrier définis en section 7
+4.2 User stories
+Format : « En tant que [rôle], je veux [action] afin de [bénéfice] ». Chaque story est validée par des
+critères d’acceptation.
+ID
+User story
+Critères d’acceptation
+US-01
+En tant que visiteur, je veux parcourir les produits par
+catégorie afin de trouver rapidement ce que je
+cherche.
+Menu par catégories, résultats affichés en
+moins de 3 secondes, galerie avec photo,
+nom et prix.
+US-02
+En tant que visiteur, je veux filtrer et trier les produits
+afin de comparer selon mon budget.
+Filtres prix, marque, disponibilité ; tri par
+prix et nouveautés.
+US-03
+En tant que client, je veux consulter la fiche détaillée
+d’un produit afin de vérifier ses caractéristiques.
+Photos multiples, caractéristiques
+techniques, prix, garantie et disponibilité
+visibles.
+
+--- PAGE 11 ---
+Cahier des charges – Site e-commerce de produits informatiques
+Version 1.0 – 28/09/2026 – Document confidentiel
+Page 11
+ID
+User story
+Critères d’acceptation
+US-04
+En tant que client, je veux cliquer sur « Commander »
+afin d’être redirigé vers WhatsApp avec ma demande
+prérenseignée.
+Ouverture de WhatsApp avec nom du
+produit, quantité, prix et lien de la fiche.
+US-05
+En tant que client, je veux passer commande en ligne
+afin d’acheter sans me déplacer.
+Panier, saisie des coordonnées,
+récapitulatif, e-mail de confirmation.
+US-06
+En tant que client, je veux payer par Mobile Money ou
+par carte afin de finaliser mon achat en toute sécurité.
+Paiement chiffré, confirmation immédiate,
+échec géré avec message clair.
+US-07
+En tant que professionnel, je veux demander un devis
+afin d’obtenir une offre pour un achat en quantité.
+Formulaire de devis, réponse sous 24 h
+ouvrées, e-mail de notification à
+l’entreprise.
+US-08
+En tant que gestionnaire, je veux modifier les prix et
+images depuis un tableau de bord afin de garder le
+catalogue à jour.
+Modification sans code, prise en compte
+immédiate sur le site.
+US-09
+En tant que gestionnaire, je veux lancer une
+promotion sur une période donnée afin d’augmenter
+les ventes.
+Prix promotionnel avec dates de début et
+de fin, badge « Promo » automatique.
+US-10
+En tant que gestionnaire, je veux suivre les
+commandes et leur statut afin de traiter les demandes
+efficacement.
+Liste des commandes, statuts (nouvelle, en
+préparation, livrée, annulée), filtres par
+date.
+US-11
+En tant que visiteur à l’étranger, je veux voir l’offre et
+contacter l’entreprise afin de commander à distance.
+Contenu accessible, contact WhatsApp,
+devis international.
+US-12
+En tant que visiteur, je veux voir la localisation et les
+horaires de la boutique afin de m’y rendre.
+Carte Google Maps intégrée, itinéraire,
+horaires affichés.
+US-13
+En tant que propriétaire, je veux que le site apparaisse
+sur Google pour « SERGI-TECH » afin d’être trouvé
+facilement.
+Site indexé, fiche Google Business, balises
+SEO renseignées.
+
+--- PAGE 12 ---
+Cahier des charges – Site e-commerce de produits informatiques
+Version 1.0 – 28/09/2026 – Document confidentiel
+Page 12
+5. Besoins non-fonctionnels (qualité et fiabilité)
+Catégorie
+Exigence
+Indicateur de mesure
+Performance
+Chargement rapide, y compris sur
+connexion mobile
+Page d’accueil moins de 3 s ; score Google
+PageSpeed mobile supérieur à 70
+Disponibilité
+Site accessible en continu
+Disponibilité mensuelle supérieure ou égale à 99 %
+Compatibilité
+Fonctionnement sur les navigateurs
+courants
+Chrome, Safari, Firefox, Edge (deux dernières
+versions), Android et iOS
+Responsive
+Affichage adapté à tous les écrans
+Tests de 320 px à 1920 px de largeur
+Sécurité
+Protection des données et des
+paiements
+HTTPS, mots de passe robustes, pare-feu, mises à
+jour régulières, aucune donnée bancaire stockée
+sur le site
+Sauvegarde
+Récupération possible en cas
+d’incident
+Sauvegarde quotidienne, conservation 30 jours, test
+de restauration
+Conformité
+Respect des règles de protection des
+données personnelles
+Bandeau cookies, politique de confidentialité, droit
+d’accès et de suppression
+Accessibilité
+Lisibilité pour le plus grand nombre
+Contrastes suffisants, textes alternatifs, navigation
+au clavier
+Maintenabilité
+Évolutions faciles
+Code documenté, extensions maintenues,
+environnement de test
+Utilisabilité
+Administration simple
+Un gestionnaire formé ajoute un produit en moins
+de 5 minutes
+SEO
+Bonnes pratiques de référencement
+Sitemap, balises structurées, URL propres, images
+optimisées
+Évolutivité
+Capacité à grandir
+Ajout de catégories, langues et moyens de
+paiement sans refonte
+
+--- PAGE 13 ---
+Cahier des charges – Site e-commerce de produits informatiques
+Version 1.0 – 28/09/2026 – Document confidentiel
+Page 13
+6. Livrables et planning
+6.1 Livrables
+N°
+Livrable
+Format
+Jalon
+L1
+Cahier des charges validé
+PDF
+Fin de cadrage
+L2
+Backlog produit priorisé et roadmap des sprints
+Outil agile
+Fin de cadrage
+L3
+Maquettes (wireframes puis design final)
+Figma
+Sprint 1
+L4
+Site en préproduction (environnement de test)
+URL de test
+Sprints 2 à 4
+L5
+Catalogue initial intégré (produits, photos, prix)
+Site
+Sprint 4
+L6
+Rapport de recette et de tests
+PDF
+Sprint 5
+L7
+Site en production
+URL définitive
+Fin du sprint 5
+L8
+Guide d’administration et sessions de formation
+PDF et
+visioconférence
+Fin du sprint 5
+L9
+Accès et documentation technique (comptes,
+sauvegardes)
+Document sécurisé
+Mise en ligne
+6.2 Méthode de travail agile
+Le projet est conduit selon la méthode Scrum : le Product Owner tient le backlog priorisé, des
+sprints de 2 semaines livrent des fonctionnalités testables, chaque sprint se termine par une
+démonstration et une rétrospective.
+Cérémonie
+Fréquence
+Participants
+Planification de sprint
+Début de sprint
+PO, développeur, entreprise
+Point quotidien (15 min)
+Chaque jour ouvré
+Développeur, chef de projet
+Revue de sprint (démo)
+Fin de sprint
+PO, entreprise, développeur
+Rétrospective
+Fin de sprint
+Équipe projet
+
+--- PAGE 14 ---
+Cahier des charges – Site e-commerce de produits informatiques
+Version 1.0 – 28/09/2026 – Document confidentiel
+Page 14
+6.3 Planning prévisionnel par sprint
+Sprint
+Contenu
+Durée
+Sprint 0
+Cadrage, validation du cahier des charges, choix plateforme,
+domaine et hébergement
+1 à 2 semaines
+Sprint 1
+Maquettes UX/UI, charte graphique, configuration de la plateforme
+2 semaines
+Sprint 2
+Thème, pages principales, catalogue et fiches produits
+2 semaines
+Sprint 3
+Recherche et filtres, panier, commande, bouton WhatsApp,
+paiement
+2 semaines
+Sprint 4
+Intégration des contenus, Google Maps, réseaux sociaux, SEO,
+Analytics
+2 semaines
+Sprint 5
+Recette, corrections, formation, mise en ligne
+2 semaines
+Après
+lancement
+Suivi et garantie de corrections (1 mois), plan d’évolution
+4 semaines
+7. Coût et délais
+7.1 Planification par la technique PERT
+La méthode PERT (Program Evaluation and Review Technique) estime chaque tâche avec trois
+durées (en jours ouvrés) : optimiste (O), la plus probable (M) et pessimiste (P). La durée espérée
+est E = (O + 4M + P) / 6 et la variance est ((P − O) / 6)².
+Tâche
+Description
+Antér.
+O
+M
+P
+E
+Marge
+A
+Cadrage et validation du cahier des charges
+–
+3
+5
+8
+5.2
+-0.0
+B
+Conception UX/UI (wireframes et maquettes)
+A
+5
+8
+12
+8.2
+-0.0
+C
+Choix et configuration plateforme, domaine,
+hébergement
+A
+3
+5
+8
+5.2
+3.0
+D
+Développement du thème et des pages (front)
+B, C
+8
+12
+18
+12.3
+-0.0
+E
+Catalogue, panier, commande, paiement,
+bouton WhatsApp
+C
+8
+12
+18
+12.3
+3.0
+F
+Intégration des contenus (produits, photos,
+prix, textes)
+D, E
+5
+8
+12
+8.2
+0.0
+G
+SEO technique, Analytics, Google Maps,
+réseaux sociaux
+D, E
+3
+4
+6
+4.2
+4.0
+H
+Recette, tests et corrections
+F, G
+5
+7
+10
+7.2
+0.0
+I
+Formation et documentation
+H
+2
+3
+4
+3.0
+0.0
+J
+Mise en ligne et suivi de lancement
+H
+1
+2
+3
+2.0
+1.0
+Chemin critique : A → B → D → F → H → I. Une tâche critique a une marge nulle : tout retard sur
+elle retarde l’ensemble du projet.
+
+--- PAGE 15 ---
+Cahier des charges – Site e-commerce de produits informatiques
+Version 1.0 – 28/09/2026 – Document confidentiel
+Page 15
+Durée espérée du projet : 44.0 jours ouvrés, soit environ 9 semaines. Écart-type du chemin
+critique : σ = 2.6 jours. Avec un niveau de confiance de 95 %, la durée maximale à prévoir est
+d’environ 48 jours ouvrés (10 semaines).
+À ces durées s’ajoutent les délais de réponse du commanditaire (validations, fourniture des
+photos et prix), qui ne doivent pas dépasser 3 jours ouvrés par validation. Le lancement est visé
+environ 3 mois après la validation du cahier des charges, en tenant compte de ces délais.
+7.2 Estimation des coûts
+Poste
+Coût estimé
+Cadrage, gestion de projet et Product Owner (AMOA)
+350 000 FCFA
+Conception UX/UI et maquettes
+400 000 FCFA
+Développement du site e-commerce (thème, catalogue, panier, commande)
+900 000 FCFA
+Intégration des contenus (fiches produits, photos, prix)
+250 000 FCFA
+SEO technique, Analytics, Google Maps, réseaux sociaux
+150 000 FCFA
+Recette, tests et mise en ligne
+150 000 FCFA
+Formation et documentation
+100 000 FCFA
+Nom de domaine, hébergement, certificat SSL, e-mail professionnel (1re
+année)
+100 000 FCFA
+Extensions et licences (paiement, sécurité, sauvegarde, cache)
+150 000 FCFA
+Sous-total
+2 550 000 FCFA
+Aléas et imprévus (10 %)
+255 000 FCFA
+Total estimé du projet
+2 805 000 FCFA
+Ces montants sont des estimations de cadrage. Ils seront affinés par le devis du prestataire retenu.
+Les coûts récurrents à prévoir après la première année sont : renouvellement du domaine et de
+l’hébergement, licences des extensions, maintenance (environ 10 à 15 % du coût de
+développement par an) et frais de transaction des opérateurs de paiement.
+
+--- PAGE 16 ---
+Cahier des charges – Site e-commerce de produits informatiques
+Version 1.0 – 28/09/2026 – Document confidentiel
+Page 16
+7.3 Risques principaux
+Risque
+Impact
+Mesure de maîtrise
+Retard dans la fourniture des contenus
+(photos, prix)
+Élevé
+Calendrier de livraison des contenus dès le sprint 0,
+gabarit de fiche produit
+Difficultés d’intégration du paiement
+Mobile Money
+Moyen
+Paiement à la livraison et commande WhatsApp
+comme solutions de repli
+Périmètre qui s’étend en cours de projet
+Élevé
+Backlog priorisé, arbitrage du PO, évolutions au sprint
+suivant
+Connexion internet lente des utilisateurs
+Moyen
+Optimisation des images, cache, tests sur réseau
+mobile
+Sécurité et piratage
+Élevé
+Mises à jour, sauvegardes, authentification renforcée,
+pare-feu
+7.4 Conditions de validation et recette
+• Recette fonctionnelle sur la base des user stories et de leurs critères d’acceptation.
+• Recette technique : performance, compatibilité navigateurs, sécurité, responsive.
+• Procès-verbal de recette signé par le commanditaire avant la mise en ligne.
+• Période de garantie de 1 mois après mise en ligne pour la correction gratuite des anomalies.
+Validation du cahier des charges
+Commanditaire
+Chef de projet / Product Owner
+Nom : ______________________
+Nom : ______________________
+Date : ______________________
+Date : ______________________
+Signature :
+Signature :

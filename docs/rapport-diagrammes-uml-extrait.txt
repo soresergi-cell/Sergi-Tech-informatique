@@ -1,0 +1,187 @@
+--- PAGE 1 ---
+RAPPORT DE CONCEPTION —
+MODÉLISATION UML
+Site E-Commerce de Vente de Produits Informatiques « SERGI-TECH »
+Version 1.0 — Analyse & Conception Technique AMOA (28 Septembre 2026)
+Ce rapport présente la modélisation UML intégrale du projet de site e-commerce SERGI-TECH. Les 5
+diagrammes ont été conçus à partir de l'analyse exhaustive du cahier des charges fonctionnel : parcours clients,
+intégration WhatsApp Business, passerelles de paiement (Mobile Money / Carte), gestion du catalogue
+informatique, devis professionnels et planning d'exécution PERT / Agile.
+Projet :
+Site E-Commerce Matériel Informatique SERGI-TECH
+Commanditaire :
+Direction SERGI-TECH (Burkina Faso)
+Référence CDC :
+Cahier des Charges Fonctions v1.0 (28/09/2026)
+Plateforme Recommandée :
+WordPress + WooCommerce (Mobile First)
+Planning & Durée :
+5 Sprints × 2 semaines = 10 semaines (44 jours ouvrés PERT)
+Budget estimé :
+2 805 000 FCFA (Cadrage AMOA inclus)
+Statut :
+Document Confidentiel — Spécifications UML Validées
+
+--- PAGE 2 ---
+Introduction & Table des Matières
+Contexte & Enjeux Métier :
+SERGI-TECH commercialise du matériel informatique (ordinateurs, composants, périphériques, réseau,
+stockage) via sa boutique physique et ses réseaux sociaux. Afin de dépasser les limites de la vente physique et
+de réduire les demandes répétitives, le nouveau site e-commerce offrira un catalogue 24/7 avec commande
+directe et intégration fluide vers WhatsApp.
+Acteurs & Interactions Clés :
+• Visiteur & Client : Consultation catalogue, filtres, commande panier ou commande WhatsApp.
+• Professionnel / Entreprise : Demandes de devis dédiées pour achats en quantité.
+• Gestionnaire & Direction : Gestion autonome des prix, promotions, stocks et suivi des commandes.
+• Systèmes Externes : WhatsApp Business API, Passerelle Mobile Money/CB, SMTP, Google Analytics/SEO.
+Sommaire du Rapport :
+N
+°
+Diagramme
+Contenu et Objectifs
+Page
+1
+Page de Garde
+Informations projet, cadrage budget & planning
+1
+2
+Introduction & Sommaire
+Contexte métier, acteurs et gouvernance
+2
+3
+Cas d'Utilisation
+Modules catalogue, panier, WhatsApp, devis, admin
+3-4
+4
+Diagramme de Séquence
+Parcours complet : recherche → paiement → WhatsApp
+5-6
+5
+Diagramme de Classes
+Modèle de données WooCommerce / MySQL étendu
+7-8
+6
+Diagramme d'Activité
+Cycle de vie commande & double canal (Web/WhatsApp)
+9-10
+7
+Gantt & Planning PERT
+5 Sprints, 10 tâches PERT, chemin critique
+11-12
+SERGI-TECH — Spécifications Techniques & Diagrammes UML v1.0
+Document Confidentiel — Cahier des Charges E-Commerce SERGI-TECH
+Page 2 sur 12
+
+--- PAGE 3 ---
+1. Diagramme de Cas d'Utilisation
+Ce diagramme modélise l'ensemble des fonctionnalités du site SERGI-TECH structurées autour des 5 profils
+d'utilisateurs et de 3 systèmes externes.
+• Visiteur Anonyme : Navigation par catégories, recherche avancée, filtres (prix, marque, stock), consultation
+des fiches et promotions, commande WhatsApp direct.
+• Client Enregistré : Gestion du compte, historique et suivi en temps réel des commandes, liste de souhaits,
+dépôt d'avis modérés.
+• Professionnel / Entreprise : Formulaire spécifique de demande de devis pour achat en quantité (réponse
+visée sous 24h ouvrées).
+• Gestionnaire & Propriétaire : Administration simple du catalogue (images, prix, stocks), promotions
+automatisées, suivi du tableau de bord.
+• Systèmes Externes : API WhatsApp Business, Passerelles de paiement (Mobile Money/CB), Service Email
+SMTP.
+SERGI-TECH — Spécifications Techniques & Diagrammes UML v1.0
+Document Confidentiel — Cahier des Charges E-Commerce SERGI-TECH
+Page 3 sur 12
+
+--- PAGE 4 ---
+Figure 1 — Diagramme de Cas d'Utilisation UML 2.5 : 5 rôles utilisateurs et 22 cas d'usage e-commerce
+SERGI-TECH — Spécifications Techniques & Diagrammes UML v1.0
+Document Confidentiel — Cahier des Charges E-Commerce SERGI-TECH
+Page 4 sur 12
+
+--- PAGE 5 ---
+2. Diagramme de Séquence — Workflow Commande & Devis
+Ce diagramme retrace la séquence temporelle des échanges entre le Navigateur Client, le Front-End
+WooCommerce, la Base de Données, la Passerelle Paiement et WhatsApp.
+• Navigation & Recherche : Requête dynamique des produits par filtres et tri, affichage instantané de la fiche
+produit.
+• Option WhatsApp Direct : Redirection dynamique vers l'application WhatsApp avec préremplissage
+automatique (Nom produit, Prix, URL fiche).
+• Option Commande Panier : Ajout au panier, validation adresse, choix du mode de paiement (Mobile Money,
+Carte, ou Paiement à la livraison).
+• Validation Transaction : Webhook de confirmation de paiement, passage automatique au statut 'En
+préparation'.
+• Notifications & Analytics : Déclenchement automatique de l'email de confirmation au client, alerte
+administrateur et push Google Analytics.
+SERGI-TECH — Spécifications Techniques & Diagrammes UML v1.0
+Document Confidentiel — Cahier des Charges E-Commerce SERGI-TECH
+Page 5 sur 12
+
+--- PAGE 6 ---
+Figure 2 — Diagramme de Séquence UML 2.5 : parcours complet de consultation, commande en ligne, WhatsApp et devis
+SERGI-TECH — Spécifications Techniques & Diagrammes UML v1.0
+Document Confidentiel — Cahier des Charges E-Commerce SERGI-TECH
+Page 6 sur 12
+
+--- PAGE 7 ---
+3. Modèle Conceptuel de Données — Diagramme de Classes
+Le modèle conceptuel de données traduit l'architecture de la base de données MySQL de la plateforme
+WordPress/WooCommerce, enrichie des entités spécifiques à SERGI-TECH.
+• Package Catalogue : Entités Categorie, Produit, PhotoProduit et Promotion (gestion des prix barrés et dates
+d'effet).
+• Package Commandes & Panier : Entités Panier, LignePanier, Commande, LigneCommande et
+HistoriqueStatutCommande.
+• Package Paiements : Entité Paiement (gestion des transactions Mobile Money et CB, références
+d'opérateurs).
+• Package B2B & Engagement : Entités Devis (demandes professionnels), ListeSouhaits et AvisClient.
+• Package Utilisateurs : Hiérarchie Utilisateur -> Visiteur / ClientEnregistre / Gestionnaire / Proprietaire.
+SERGI-TECH — Spécifications Techniques & Diagrammes UML v1.0
+Document Confidentiel — Cahier des Charges E-Commerce SERGI-TECH
+Page 7 sur 12
+
+--- PAGE 8 ---
+Figure 3 — Diagramme de Classes UML 2.5 : 5 packages métiers, entités et contraintes d'intégrité
+SERGI-TECH — Spécifications Techniques & Diagrammes UML v1.0
+Document Confidentiel — Cahier des Charges E-Commerce SERGI-TECH
+Page 8 sur 12
+
+--- PAGE 9 ---
+4. Cycle de Vie d'une Commande — Diagramme d'Activité
+Ce diagramme décrit le flux d'activités avec 5 swimlanes de responsabilité, de la première visite jusqu'à la
+livraison et la gestion des paiements.
+• Swimlane Client / Visiteur : Parcours de découverte, sélection de l'alternative de commande (WhatsApp vs
+Panier).
+• Swimlane Front-End & Backend : Vérification automatique des stocks, calcul des totaux, routage vers les
+API de paiement.
+• Swimlane Passerelle de Paiement : Traitement sécurisé Mobile Money / CB avec gestion fine des échecs et
+retours d'erreur.
+• Swimlane Gestionnaire SERGI-TECH : Préparation physique du matériel, mise à jour des statuts, gestion du
+retrait boutique ou livraison.
+• Mises à jour automatiques : Décrémentation automatique des stocks et mise à jour du statut 'Livrée'.
+SERGI-TECH — Spécifications Techniques & Diagrammes UML v1.0
+Document Confidentiel — Cahier des Charges E-Commerce SERGI-TECH
+Page 9 sur 12
+
+--- PAGE 10 ---
+Figure 4 — Diagramme d'Activité UML 2.5 : 5 swimlanes, branchements conditionnels et traitements parallèles
+SERGI-TECH — Spécifications Techniques & Diagrammes UML v1.0
+Document Confidentiel — Cahier des Charges E-Commerce SERGI-TECH
+Page 10 sur 12
+
+--- PAGE 11 ---
+5. Planning PERT & Gantt Agile — 5 Sprints (10 Semaines)
+Le planning découpe le projet en 5 sprints de 2 semaines (10 semaines totales), conformément à la méthode
+PERT du CDC (§7.1) qui calcule une durée espérée de 44 jours ouvrés.
+• Sprint 0 (S0) : Cadrage, validation CDC, achat nom de domaine (.bf/.com) & hébergement — Jalon M1.
+• Sprint 1 (S1) : Conception UX/UI Figma, charte graphique et maquettes valides — Jalon M2.
+• Sprint 2 (S2) : Intégration du thème WordPress/WooCommerce, pages principales — Jalon M3.
+• Sprint 3 (S3) : Moteur de recherche/filtres, Panier, commande WhatsApp & paiement — Jalon M4.
+• Sprint 4 (S4) : Intégration du catalogue initial, SEO technique, Google Maps & Analytics — Jalon M5.
+• Sprint 5 (S5) : Recette fonctionnelle/technique, formation de l'équipe et GO LIVE — Jalon M6 (Production).
+• Chemin Critique PERT : Tâches A -> B -> D -> F -> H -> I (durée critique = 44 jours ouvrés).
+SERGI-TECH — Spécifications Techniques & Diagrammes UML v1.0
+Document Confidentiel — Cahier des Charges E-Commerce SERGI-TECH
+Page 11 sur 12
+
+--- PAGE 12 ---
+Figure 5 — Gantt Agile Scrum : 5 sprints × 2 semaines, 10 tâches PERT (A-J), 6 jalons contractuels (M1-M6)
+SERGI-TECH — Spécifications Techniques & Diagrammes UML v1.0
+Document Confidentiel — Cahier des Charges E-Commerce SERGI-TECH
+Page 12 sur 12

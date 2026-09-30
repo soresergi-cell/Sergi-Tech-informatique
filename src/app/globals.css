@@ -1,0 +1,187 @@
+/* ============================================================
+   SERGI-TECH – Design system global (Tailwind CSS)
+   Palette : bleu foncé / cyan électrique / orange chaleureux
+   ============================================================ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Fonds & texte */
+    --background: 0 0% 100%; /* #FFFFFF */
+    --foreground: 222 47% 11%; /* #0F172A */
+
+    /* Composants */
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    /* Primaire : bleu profond #1E3A8A */
+    --primary: 224 64% 33%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondaire : gris clair */
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    /* Accent : cyan électrique #06B6D4 */
+    --accent: 190 94% 43%;
+    --accent-foreground: 222 47% 11%;
+
+    /* Calme / texte secondaire */
+    --muted: 220 40% 98%;
+    --muted-foreground: 215 16% 47%;
+
+    /* Déstructeur */
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Bordures & focus */
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 224 64% 33%;
+
+    --radius: 0.75rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  ::selection {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  /* Accessibilité : indicateur de focus visible au clavier */
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+}
+
+@layer components {
+  /* Encart prix : prix courant + prix barré */
+  .price-current {
+    @apply text-lg font-bold text-brand-navy;
+  }
+  .price-old {
+    @apply text-sm font-medium text-muted-foreground line-through;
+  }
+
+  /* Badge promo (EF-06) */
+  .badge-promo {
+    @apply inline-flex items-center gap-1 rounded-full bg-brand-orange px-2.5 py-0.5 text-xs font-bold text-white shadow-sm;
+  }
+
+  /* Lien de navigation hover/actif géré ici pour réutilisation */
+  .nav-link {
+    @apply relative text-sm font-medium text-slate-200 transition-colors hover:text-white;
+  }
+}
+
+@layer utilities {
+  /* Titre de section réutilisable (design system) */
+  .section-title {
+    @apply text-2xl font-bold tracking-tight text-brand-navy sm:text-3xl;
+  }
+  .section-subtitle {
+    @apply mt-2 text-sm text-muted-foreground sm:text-base;
+  }
+
+  /* Masque le scroll horizontal sur les carrousels */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* ----------------------------- Design system (compléments) ----------------------------- */
+@layer utilities {
+  /* Barre de défilement discrète pour les zones défilantes (tableaux, tiroirs) */
+  .scrollbar-slim {
+    scrollbar-width: thin;
+    scrollbar-color: theme(colors.slate.300) transparent;
+  }
+  .scrollbar-slim::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+  }
+  .scrollbar-slim::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-slim::-webkit-scrollbar-thumb {
+    @apply rounded-full border-2 border-transparent bg-slate-300 bg-clip-content;
+  }
+  .scrollbar-slim::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-400 bg-clip-content;
+  }
+
+  /* Les ombres douces `shadow-soft` / `shadow-lift` / `shadow-glow` sont désormais
+     des jetons du thème (voir tailwind.config.ts) : aucune règle à maintenir ici. */
+
+  /* Surface « carte » réutilisable (admin + client) */
+  .surface-card {
+    @apply rounded-2xl border border-slate-200/80 bg-white shadow-soft;
+  }
+
+  /* Trame technique discrète pour les fonds sombres (héro, bandeaux) */
+  .bg-grid-lines {
+    background-image:
+      linear-gradient(to right, rgb(255 255 255 / 0.055) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.055) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
+  /* Halo lumineux used behind the hero showcase */
+  .bg-halo {
+    background: radial-gradient(
+      60% 60% at 50% 45%,
+      rgb(6 182 212 / 0.28) 0%,
+      rgb(30 58 138 / 0.14) 45%,
+      transparent 75%
+    );
+  }
+
+  /* Piste défilante : défilement magnétique et barres masquées */
+  .snap-track {
+    @apply flex snap-x snap-mandatory gap-3 overflow-x-auto overscroll-x-contain scroll-smooth pb-1 sm:gap-4;
+    scrollbar-width: none;
+  }
+  .snap-track::-webkit-scrollbar {
+    display: none;
+  }
+  .snap-track > * {
+    @apply snap-start shrink-0;
+  }
+}
+
+/* Mouvements neutralisés quand l'utilisateur le demande (accessibilité). */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .animate-float,
+  .animate-marquee,
+  .animate-sheen,
+  .animate-in,
+  .animate-out {
+    animation: none !important;
+  }
+
+  .snap-track {
+    scroll-behavior: auto;
+  }
+}
+

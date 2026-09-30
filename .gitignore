@@ -1,0 +1,22 @@
+# Dépendances
+/node_modules
+/.pnp
+.pnp.*
+
+# Next.js
+/.next/
+/out/
+next-env.d.ts
+
+# Production
+/build
+
+# Divers
+*.tsbuildinfo
+*.log
+eslint.config.mjs.bak
+.env*.local
+.vercel
+
+# Windows
+Thumbs.db
