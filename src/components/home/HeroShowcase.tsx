@@ -160,7 +160,7 @@ export function HeroShowcase({ products }: { products: Product[] }) {
 
       {/* Vignettes de sélection + compteur */}
       {count > 1 && (
-        <div className="mt-3 flex items-center gap-2">
+        <div className="mt-3 flex items-center gap-2 overflow-x-auto scrollbar-slim pb-1">
           {products.map((product, i) => (
             <button
               key={product.id}
