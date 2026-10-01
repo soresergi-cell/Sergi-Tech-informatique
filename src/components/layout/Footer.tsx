@@ -91,15 +91,6 @@ export function Footer() {
             <li><Link href="/a-propos" className="transition-colors hover:text-white">À propos</Link></li>
             <li><Link href="/devis" className="transition-colors hover:text-white">Demande de devis</Link></li>
             <li><Link href="/contact" className="transition-colors hover:text-white">Contact</Link></li>
-            <li>
-              <Link
-                href="/admin"
-                className="inline-flex items-center gap-1.5 font-medium text-brand-cyan transition-colors hover:text-white"
-              >
-                <ShieldCheck className="h-3.5 w-3.5" aria-hidden />
-                Espace de gestion
-              </Link>
-            </li>
             {LEGAL_LINKS.map((l) => (
               <li key={l.href}>
                 <Link href={l.href} className="transition-colors hover:text-white">{l.label}</Link>
