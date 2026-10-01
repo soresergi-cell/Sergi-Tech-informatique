@@ -143,8 +143,8 @@ export function Footer() {
       {/* Bas de page */}
       <div className="border-t border-white/10">
         <div className="container flex flex-col items-center justify-between gap-3 py-5 text-xs sm:flex-row">
-          <p>© {year} {SITE.name} – Tous droits réservés.</p>
-          <p className="flex items-center gap-4">
+          <p className="text-center sm:text-left">© {year} {SITE.name} – Tous droits réservés.</p>
+          <p className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5">
             {LEGAL_LINKS.map((l) => (
               <Link key={l.href} href={l.href} className="transition-colors hover:text-white">
                 {l.label}

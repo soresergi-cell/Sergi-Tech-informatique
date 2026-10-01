@@ -69,7 +69,7 @@ export function HomeHero({ banners, showcases, stats, ribbon }: HomeHeroProps) {
         className="absolute -right-24 top-8 h-72 w-72 animate-float rounded-full bg-brand-orange/15 blur-3xl"
       />
 
-      <div className="container relative grid items-center gap-10 py-12 md:py-16 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-14 lg:py-20">
+      <div className="container relative grid items-center gap-8 py-8 sm:gap-10 sm:py-12 md:py-16 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-14 lg:py-20">
         {/* Colonne gauche : message tournant */}
         <div
           onMouseEnter={() => setPaused(true)}
@@ -85,22 +85,22 @@ export function HomeHero({ banners, showcases, stats, ribbon }: HomeHeroProps) {
               exit={{ opacity: 0, y: -14 }}
               transition={{ duration: 0.45, ease: "easeOut" }}
             >
-              <span className="inline-flex items-center gap-2 rounded-full border border-brand-cyan/40 bg-brand-cyan/10 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.12em] text-brand-cyan sm:text-xs">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-brand-cyan/40 bg-brand-cyan/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.1em] text-brand-cyan sm:px-3 sm:text-[11px] sm:tracking-[0.12em]">
                 <span className="h-1.5 w-1.5 rounded-full bg-brand-cyan" aria-hidden />
                 {banner.eyebrow}
               </span>
 
-              <h1 className="mt-4 text-balance text-3xl font-extrabold leading-[1.15] tracking-tight sm:text-4xl lg:text-[2.85rem]">
+              <h1 className="mt-3 text-balance text-2xl font-extrabold leading-[1.15] tracking-tight sm:mt-4 sm:text-3xl md:text-4xl lg:text-[2.85rem]">
                 {banner.title}
                 <span className="mt-1 block text-brand-cyan">{banner.highlight}</span>
               </h1>
 
-              <p className="mt-4 max-w-xl text-sm leading-relaxed text-slate-300 sm:text-base">
+              <p className="mt-3 max-w-xl text-xs leading-relaxed text-slate-300 sm:mt-4 sm:text-sm md:text-base">
                 {banner.subtitle}
               </p>
 
               {/* Actions principales */}
-              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+              <div className="mt-5 flex flex-col gap-2.5 sm:mt-7 sm:flex-row sm:gap-3">
                 <Button
                   asChild
                   size="lg"
@@ -145,7 +145,7 @@ export function HomeHero({ banners, showcases, stats, ribbon }: HomeHeroProps) {
           )}
 
           {/* Réassurance, issue des avantages de la page */}
-          <ul className="mt-8 grid grid-cols-1 gap-3 text-xs text-slate-300 sm:grid-cols-3 sm:text-sm">
+          <ul className="mt-6 grid grid-cols-1 gap-2 text-xs text-slate-300 sm:mt-8 sm:grid-cols-3 sm:gap-3 sm:text-sm">
             {TRUST_ITEMS.slice(0, 3).map((item) => {
               const Icon = HOME_ICONS[item.icon];
               return (
@@ -174,13 +174,13 @@ export function HomeHero({ banners, showcases, stats, ribbon }: HomeHeroProps) {
 
       {/* Bande de chiffres réels */}
       <div className="relative border-t border-white/10 bg-white/5 backdrop-blur-sm">
-        <dl className="container grid grid-cols-2 divide-x divide-white/10 py-5 text-center sm:grid-cols-4">
+        <dl className="container grid grid-cols-2 divide-x divide-white/10 py-4 text-center sm:grid-cols-4 sm:py-5">
           {stats.map((stat) => (
             <div key={stat.label} className="px-2">
-              <dd className="text-xl font-extrabold text-brand-cyan tabular-nums sm:text-2xl">
+              <dd className="text-lg font-extrabold text-brand-cyan tabular-nums sm:text-xl md:text-2xl">
                 {stat.value}
               </dd>
-              <dt className="mt-0.5 text-[11px] text-slate-400 sm:text-xs">{stat.label}</dt>
+              <dt className="mt-0.5 text-[10px] text-slate-400 sm:text-[11px] md:text-xs">{stat.label}</dt>
             </div>
           ))}
         </dl>

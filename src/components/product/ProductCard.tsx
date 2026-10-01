@@ -129,27 +129,27 @@ export function ProductCard({
         </p>
 
         {/* Actions */}
-        <div className="mt-auto flex gap-2 pt-3.5">
+        <div className="mt-auto flex gap-1.5 pt-3 sm:gap-2">
           <Button
             variant="outline"
             size="sm"
-            className="flex-1"
+            className="flex-1 px-1.5 text-xs sm:px-3"
             disabled={outOfStock}
             onClick={() => addItem(product)}
             aria-label={`Ajouter ${product.name} au panier`}
           >
-            <ShoppingCart className="h-4 w-4" aria-hidden />
-            Panier
+            <ShoppingCart className="h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4" aria-hidden />
+            <span className="truncate">Panier</span>
           </Button>
-          <Button asChild size="sm" variant="whatsapp" className="flex-1">
+          <Button asChild size="sm" variant="whatsapp" className="flex-1 px-1.5 text-xs sm:px-3">
             <a
               href={waLink(productOrderMessage(product, 1))}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Commander ${product.name} sur WhatsApp`}
             >
-              <MessageCircle className="h-4 w-4" aria-hidden />
-              Commander
+              <MessageCircle className="h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4" aria-hidden />
+              <span className="truncate">Commander</span>
             </a>
           </Button>
         </div>

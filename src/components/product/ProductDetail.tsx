@@ -73,14 +73,14 @@ export function ProductDetail({ product }: { product: Product }) {
           )}
         </div>
 
-        {/* Miniatures */}
-        <div className="mt-3 flex gap-3">
+        {/* Miniatures avec scroll horizontal si débordement */}
+        <div className="mt-3 flex gap-2 overflow-x-auto pb-1 sm:gap-3">
           {product.images.map((src, i) => (
             <button
               key={src}
               onClick={() => setActiveImage(i)}
               aria-label={`Voir la photo ${i + 1}`}
-              className={`relative h-20 w-20 overflow-hidden rounded-lg border-2 bg-white transition-all ${
+              className={`relative h-16 w-16 shrink-0 overflow-hidden rounded-lg border-2 bg-white transition-all sm:h-20 sm:w-20 ${
                 i === activeImage
                   ? "border-primary shadow"
                   : "border-transparent opacity-70 hover:opacity-100"
@@ -99,7 +99,7 @@ export function ProductDetail({ product }: { product: Product }) {
 
         {/* Description */}
         <div className="mt-7">
-          <h2 className="mb-2 text-lg font-bold text-brand-navy">Description</h2>
+          <h2 className="mb-2 text-base font-bold text-brand-navy sm:text-lg">Description</h2>
           <p className="text-sm leading-relaxed text-slate-600">{product.description}</p>
         </div>
       </div>
@@ -177,7 +177,7 @@ export function ProductDetail({ product }: { product: Product }) {
 
         <Separator className="my-5" />
 
-        {/* Quantité */}
+        {/* Quantité + panier : empilés sur mobile XS, côte à côte sur SM+ */}
         <div className="flex flex-wrap items-center gap-3">
           <div className="flex h-11 items-center rounded-lg border">
             <button
