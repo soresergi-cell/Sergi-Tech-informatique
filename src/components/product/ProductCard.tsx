@@ -82,32 +82,32 @@ export function ProductCard({
       </Link>
 
       {/* Contenu */}
-      <div className="flex flex-1 flex-col p-2.5 sm:p-4">
-        <p className="mb-1 flex items-center justify-between gap-1 text-[11px] font-medium text-slate-500">
+      <div className="flex flex-1 flex-col p-2.5 sm:p-4 md:p-5">
+        <p className="mb-1 flex items-center justify-between gap-1 text-[11px] font-medium text-slate-500 sm:text-xs">
           <span className="truncate">{product.brand}</span>
           {/* Référence réelle du produit */}
-          <span className="shrink-0 font-mono text-[10px] tracking-wide text-slate-400">
+          <span className="shrink-0 font-mono text-[10px] tracking-wide text-slate-400 sm:text-xs">
             {product.reference}
           </span>
         </p>
 
-        <h3 className="line-clamp-2 text-xs font-semibold leading-snug text-brand-navy sm:text-sm">
+        <h3 className="line-clamp-2 text-xs font-semibold leading-snug text-brand-navy sm:text-base sm:font-bold md:leading-normal">
           <Link href={`/produit/${product.slug}`} className="hover:text-primary">
             {product.name}
           </Link>
         </h3>
 
         {/* Prix */}
-        <div className="mt-2 flex flex-wrap items-baseline gap-x-1.5">
-          <span className="price-current text-sm font-extrabold sm:text-base md:text-lg">{formatPrice(product.price)}</span>
+        <div className="mt-2 flex flex-wrap items-baseline gap-x-2 sm:mt-3">
+          <span className="price-current text-sm font-extrabold sm:text-lg md:text-xl">{formatPrice(product.price)}</span>
           {product.originalPrice && (
-            <span className="price-old text-xs">{formatPrice(product.originalPrice)}</span>
+            <span className="price-old text-xs sm:text-sm">{formatPrice(product.originalPrice)}</span>
           )}
         </div>
 
         {/* Disponibilité */}
         <p
-          className={`mt-1.5 flex items-center gap-1.5 text-xs font-medium ${
+          className={`mt-1.5 flex items-center gap-1.5 text-xs font-medium sm:mt-2 sm:text-sm ${
             stock.tone === "in"
               ? "text-emerald-600"
               : stock.tone === "low"
@@ -116,7 +116,7 @@ export function ProductCard({
           }`}
         >
           <span
-            className={`h-1.5 w-1.5 rounded-full ${
+            className={`h-1.5 w-1.5 rounded-full sm:h-2 sm:w-2 ${
               stock.tone === "in"
                 ? "bg-emerald-500"
                 : stock.tone === "low"
@@ -128,27 +128,27 @@ export function ProductCard({
           {stock.label}
         </p>
 
-        {/* Actions : empilées sur mobile, côte à côte sur desktop */}
-        <div className="mt-auto flex flex-col gap-1.5 pt-3 sm:flex-row sm:gap-2">
+        {/* Actions : empilées et grandes sur mobile (h-10, 40px min), côte à côte sur desktop */}
+        <div className="mt-auto flex flex-col gap-2 pt-3 sm:flex-row sm:gap-2.5 sm:pt-4">
           <Button
             variant="outline"
             size="sm"
-            className="h-8.5 w-full text-xs sm:flex-1 sm:px-3"
+            className="h-10 min-h-[40px] w-full text-xs font-bold sm:flex-1 sm:px-3.5 sm:text-sm sm:font-semibold"
             disabled={outOfStock}
             onClick={() => addItem(product)}
             aria-label={`Ajouter ${product.name} au panier`}
           >
-            <ShoppingCart className="h-3.5 w-3.5 shrink-0" aria-hidden />
+            <ShoppingCart className="h-4 w-4 shrink-0" aria-hidden />
             <span>Panier</span>
           </Button>
-          <Button asChild size="sm" variant="whatsapp" className="h-8.5 w-full text-xs sm:flex-1 sm:px-3">
+          <Button asChild size="sm" variant="whatsapp" className="h-10 min-h-[40px] w-full text-xs font-bold sm:flex-1 sm:px-3.5 sm:text-sm sm:font-semibold">
             <a
               href={waLink(productOrderMessage(product, 1))}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Commander ${product.name} sur WhatsApp`}
             >
-              <MessageCircle className="h-3.5 w-3.5 shrink-0" aria-hidden />
+              <MessageCircle className="h-4 w-4 shrink-0" aria-hidden />
               <span>Commander</span>
             </a>
           </Button>

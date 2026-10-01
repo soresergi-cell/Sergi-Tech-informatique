@@ -172,7 +172,7 @@ export function Catalog({ results, brands, filters: initialFilters, query, tri }
         <Separator className="mb-5" />
 
         {results.length > 0 ? (
-          <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3 xl:grid-cols-4">
+          <div className="grid grid-cols-2 gap-3 sm:gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4">
             {results.map((p, i) => (
               <ProductCard key={p.id} product={p} index={i} />
             ))}
