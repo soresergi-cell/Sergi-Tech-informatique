@@ -45,7 +45,7 @@ export function ProductImage({
   // URL absolue (`https://…`) : aucune origine distante n'est déclarée dans
   // `next.config.ts`, et `next/image` lèverait une erreur de rendu. On bascule
   // sur une balise `img` nativa, qui affiche l'image sans l'optimiser.
-  const isExternal = /^[a-z][a-z\d+.-]*:\/\//i.test(url);
+  const isExternal = /^[a-z][a-z\d+.-]*:\/\//i.test(url) || url.startsWith("data:");
   const [failed, setFailed] = React.useState(false);
   const [loaded, setLoaded] = React.useState(false);
   const imageRef = React.useRef<HTMLImageElement>(null);

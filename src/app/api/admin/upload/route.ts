@@ -1,19 +1,17 @@
-import { promises as fs } from "fs";
-import path from "path";
+import { put } from "@vercel/blob";
 import { randomBytes } from "crypto";
 import { NextResponse } from "next/server";
 import { guardApi } from "@/lib/auth";
 import { slugify } from "@/lib/product-store";
-import { ALLOWED_MIME, PRODUCTS_DIR, detectImageFormat } from "@/lib/images";
+import { ALLOWED_MIME, detectImageFormat } from "@/lib/images";
 
 /**
- * POST /api/admin/upload – téléversement des photos produits (EF-05).
- * Les fichiers sont enregistrés dans `public/products/`, puis servis en
- * WebP/AVIF par next/image. L'extension écrite est déduite de la signature
- * binaire du fichier : un JPEG renommé `.png` est range en `.jpg`, ce qui
- * évite les visuels qui « chargent » sans jamais s'afficher.
+ * POST /api/admin/upload – téléversement des photos produits via Vercel Blob.
  *
- * ⚠️ Nécessite un hébergement avec disque persistant (VPS/mutualisé).
+ * Remplace l'écriture locale (`fs.writeFile`) qui ne fonctionne pas sur Vercel
+ * (système de fichiers en lecture seule). Les fichiers sont maintenant stockés
+ * dans Vercel Blob et servis depuis un CDN. Le token est lu depuis la variable
+ * d'environnement BLOB_READ_WRITE_TOKEN (à créer dans Vercel Dashboard → Storage).
  */
 
 const MAX_SIZE = 5 * 1024 * 1024; // 5 Mo
@@ -22,6 +20,17 @@ export async function POST(request: Request) {
   const denied = await guardApi();
   if (denied) return denied;
 
+  // Vérification préalable : le token Blob doit être configuré
+  if (!process.env.BLOB_READ_WRITE_TOKEN) {
+    return NextResponse.json(
+      {
+        error:
+          "Le stockage d'images n'est pas encore configuré. Ajoutez BLOB_READ_WRITE_TOKEN dans les variables d'environnement Vercel.",
+      },
+      { status: 503 }
+    );
+  }
+
   const form = await request.formData();
   const files = form.getAll("files").filter((f): f is File => f instanceof File);
 
@@ -29,7 +38,6 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Aucun fichier reçu." }, { status: 400 });
   }
 
-  await fs.mkdir(PRODUCTS_DIR, { recursive: true });
   const urls: string[] = [];
 
   for (const file of files) {
@@ -48,7 +56,7 @@ export async function POST(request: Request) {
 
     const buffer = Buffer.from(await file.arrayBuffer());
 
-    // Le type déclaré par le navigateur est indicatif : on vérifie le contenu.
+    // Vérification du format réel (la déclaration du navigateur est indicative)
     const extension = detectImageFormat(buffer);
     if (!extension) {
       const declared = file.type || "type inconnu";
@@ -63,10 +71,15 @@ export async function POST(request: Request) {
 
     const base = slugify(file.name.replace(/\.[^.]+$/, "")) || "photo";
     const suffix = `${Date.now().toString(36)}${randomBytes(2).toString("hex")}`;
-    const filename = `${base}-${suffix}.${extension}`;
+    const filename = `products/${base}-${suffix}.${extension}`;
 
-    await fs.writeFile(path.join(PRODUCTS_DIR, filename), buffer);
-    urls.push(`/products/${filename}`);
+    // Upload vers Vercel Blob (CDN mondial, persistant)
+    const blob = await put(filename, buffer, {
+      access: "public",
+      contentType: file.type || `image/${extension}`,
+    });
+
+    urls.push(blob.url);
   }
 
   return NextResponse.json({ urls });

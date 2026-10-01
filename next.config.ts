@@ -10,6 +10,14 @@ const nextConfig: NextConfig = {
     formats: ["image/webp", "image/avif"],
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    remotePatterns: [
+      {
+        // Domaine Vercel Blob (CDN pour les images uploadées)
+        protocol: "https",
+        hostname: "*.public.blob.vercel-storage.com",
+        pathname: "/products/**",
+      },
+    ],
   },
   reactStrictMode: true,
 
