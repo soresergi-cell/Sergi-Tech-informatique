@@ -62,7 +62,7 @@ export function HeroShowcase({ products }: { products: Product[] }) {
       <div className="bg-halo pointer-events-none absolute -inset-8 -z-10 blur-2xl" aria-hidden />
 
       <div
-        className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/15 bg-white shadow-lift sm:aspect-[16/11]"
+        className="relative min-h-[360px] overflow-hidden rounded-2xl border border-white/15 bg-white shadow-lift sm:min-h-0 sm:aspect-[16/11]"
         aria-roledescription="carrousel"
         aria-label="Produits en avant"
       >

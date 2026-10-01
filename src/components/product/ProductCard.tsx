@@ -82,26 +82,26 @@ export function ProductCard({
       </Link>
 
       {/* Contenu */}
-      <div className="flex flex-1 flex-col p-3 sm:p-4">
-        <p className="mb-1 flex items-center justify-between gap-2 text-[11px] font-medium text-slate-500">
+      <div className="flex flex-1 flex-col p-2.5 sm:p-4">
+        <p className="mb-1 flex items-center justify-between gap-1 text-[11px] font-medium text-slate-500">
           <span className="truncate">{product.brand}</span>
-          {/* Référence réelle du produit : rien n'est inventé, aucune note fictive. */}
+          {/* Référence réelle du produit */}
           <span className="shrink-0 font-mono text-[10px] tracking-wide text-slate-400">
             {product.reference}
           </span>
         </p>
 
-        <h3 className="line-clamp-2 text-sm font-semibold leading-snug text-brand-navy">
+        <h3 className="line-clamp-2 text-xs font-semibold leading-snug text-brand-navy sm:text-sm">
           <Link href={`/produit/${product.slug}`} className="hover:text-primary">
             {product.name}
           </Link>
         </h3>
 
         {/* Prix */}
-        <div className="mt-2.5 flex flex-wrap items-baseline gap-x-2">
-          <span className="price-current text-base sm:text-lg">{formatPrice(product.price)}</span>
+        <div className="mt-2 flex flex-wrap items-baseline gap-x-1.5">
+          <span className="price-current text-sm font-extrabold sm:text-base md:text-lg">{formatPrice(product.price)}</span>
           {product.originalPrice && (
-            <span className="price-old">{formatPrice(product.originalPrice)}</span>
+            <span className="price-old text-xs">{formatPrice(product.originalPrice)}</span>
           )}
         </div>
 
@@ -128,28 +128,28 @@ export function ProductCard({
           {stock.label}
         </p>
 
-        {/* Actions */}
-        <div className="mt-auto flex gap-1.5 pt-3 sm:gap-2">
+        {/* Actions : empilées sur mobile, côte à côte sur desktop */}
+        <div className="mt-auto flex flex-col gap-1.5 pt-3 sm:flex-row sm:gap-2">
           <Button
             variant="outline"
             size="sm"
-            className="flex-1 px-1.5 text-xs sm:px-3"
+            className="h-8.5 w-full text-xs sm:flex-1 sm:px-3"
             disabled={outOfStock}
             onClick={() => addItem(product)}
             aria-label={`Ajouter ${product.name} au panier`}
           >
-            <ShoppingCart className="h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4" aria-hidden />
-            <span className="truncate">Panier</span>
+            <ShoppingCart className="h-3.5 w-3.5 shrink-0" aria-hidden />
+            <span>Panier</span>
           </Button>
-          <Button asChild size="sm" variant="whatsapp" className="flex-1 px-1.5 text-xs sm:px-3">
+          <Button asChild size="sm" variant="whatsapp" className="h-8.5 w-full text-xs sm:flex-1 sm:px-3">
             <a
               href={waLink(productOrderMessage(product, 1))}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Commander ${product.name} sur WhatsApp`}
             >
-              <MessageCircle className="h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4" aria-hidden />
-              <span className="truncate">Commander</span>
+              <MessageCircle className="h-3.5 w-3.5 shrink-0" aria-hidden />
+              <span>Commander</span>
             </a>
           </Button>
         </div>
